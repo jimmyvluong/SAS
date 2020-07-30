@@ -17,7 +17,7 @@
 /*work.age_table: Contains data on enrolments by age group at each college*/
 
 /* METHOD: */
-/* 1. SAS DATA STEP to query POSTALL tables for 5 academic years */
+/* 1. SAS DATA STEP to query library tables for 5 academic years */
 /* 2. Combine tables with PROC SQL UNION */
 /* 3. Run a SAS DATA step to format columns of interest. */
 /* 4. Run various PROC SQL CREATE TABLE statements to produce data input tables for graphs.*/
@@ -25,23 +25,23 @@
 
 ***********************************************************************************************;
 DATA work.ay1415_IP; /* 1. Data steps to insert year into each table*/
-SET pmaupdat.postall1415;
+SET sample.library1415;
 year = 2014;
 RUN;
 DATA work.ay1516_IP;
-SET pmaupdat.postall1516;
+SET sample.library1516;
 year = 2015;
 RUN;
 DATA work.ay1617_IP;
-SET pmaupdat.postall1617;
+SET sample.library1617;
 year = 2016;
 RUN;
 DATA work.ay1718_IP;
-SET pmaupdat.postall1718;
+SET sample.library1718;
 year = 2017;
 RUN;
 DATA work.ay1819_IP;
-SET pmaupdat.postall1819;
+SET sample.library1819;
 year = 2018;
 RUN;
 PROC SQL; /* 2. Combine tables with SQL UNION ALL to create WORK.ay1418_IP */
